@@ -1,0 +1,78 @@
+<svg width="900" height="300" viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+
+    <linearGradient id="pcBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0078D4" />
+    </linearGradient>
+
+  </defs>
+
+  <!-- Flecha -->
+
+  <path
+    d="M150 45 L180 10 L210 45"
+    fill="none"
+    stroke="url(#pcBlue)"
+    stroke-width="10"
+    stroke-linecap="round"
+    stroke-linejoin="round" />
+
+  <line
+    x1="180"
+    y1="10"
+    x2="180"
+    y2="95"
+    stroke="url(#pcBlue)"
+    stroke-width="10"
+    stroke-linecap="round" />
+
+  <!-- W -->
+
+  <path
+    d="
+      M70 180
+      L105 95
+      L145 165
+      L180 115
+      L215 165
+      L255 95
+      L290 180
+    "
+    fill="none"
+    stroke="url(#pcBlue)"
+    stroke-width="16"
+    stroke-linecap="round"
+    stroke-linejoin="round" />
+
+  <!-- Marca -->
+
+  <text
+    x="340"
+    y="135"
+    fill="#FFFFFF"
+    font-family="Inter, Segoe UI, Arial, sans-serif"
+    font-size="72"
+    font-weight="800"
+    letter-spacing="1">
+
+    PCWORKERS
+
+  </text>
+
+  <!-- Tagline -->
+
+  <text
+    x="345"
+    y="185"
+    fill="#CBD5E1"
+    font-family="Inter, Segoe UI, Arial, sans-serif"
+    font-size="24"
+    font-weight="500">
+
+    Soporte técnico que habla tu idioma.
+
+  </text>
+
+</svg>

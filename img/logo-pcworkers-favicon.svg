@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 512 512">
+
+    <rect
+        width="512"
+        height="512"
+        rx="96"
+        fill="#07111F"/>
+
+    <defs>
+
+        <linearGradient id="pcGradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%">
+
+            <stop offset="0%"
+                  stop-color="#38BDF8"/>
+
+            <stop offset="100%"
+                  stop-color="#0078D4"/>
+
+        </linearGradient>
+
+    </defs>
+
+    <!-- W -->
+
+    <path
+        d="
+        M90 350
+        L160 170
+        L220 290
+        L256 200
+        L292 290
+        L352 170
+        L422 350
+        "
+        fill="none"
+        stroke="url(#pcGradient)"
+        stroke-width="26"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+    <!-- Flecha integrada -->
+
+    <path
+        d="
+        M230 135
+        L256 95
+        L282 135
+        "
+        fill="none"
+        stroke="url(#pcGradient)"
+        stroke-width="20"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+</svg>

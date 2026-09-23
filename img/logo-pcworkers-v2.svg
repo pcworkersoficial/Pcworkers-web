@@ -1,0 +1,98 @@
+<svg width="900" height="260" viewBox="0 0 900 260" xmlns="http://www.w3.org/2000/svg">
+
+    <defs>
+
+        <linearGradient id="pcGradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%">
+
+            <stop offset="0%"
+                  stop-color="#38BDF8"/>
+
+            <stop offset="100%"
+                  stop-color="#0078D4"/>
+
+        </linearGradient>
+
+    </defs>
+
+    <!-- Isotipo -->
+
+    <g transform="translate(40,20)">
+
+        <path
+            d="
+            M30 150
+            L70 60
+            L115 125
+            L160 60
+            L205 125
+            L250 60
+            L290 150
+            "
+            fill="none"
+            stroke="url(#pcGradient)"
+            stroke-width="16"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+        <path
+            d="
+            M145 85
+            L160 45
+            L175 85
+            "
+            fill="none"
+            stroke="url(#pcGradient)"
+            stroke-width="14"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+    </g>
+
+    <!-- Marca -->
+
+    <text
+        x="380"
+        y="110"
+        fill="#FFFFFF"
+        font-family="Inter, Segoe UI, Arial, sans-serif"
+        font-size="64"
+        font-weight="800"
+        letter-spacing="1">
+
+        PCWORKERS
+
+    </text>
+
+    <!-- Promesa -->
+
+    <text
+        x="382"
+        y="155"
+        fill="#CBD5E1"
+        font-family="Inter, Segoe UI, Arial, sans-serif"
+        font-size="24"
+        font-weight="500">
+
+        Soporte técnico que habla tu idioma.
+
+    </text>
+
+    <!-- Slogan -->
+
+    <text
+        x="382"
+        y="190"
+        fill="#38BDF8"
+        font-family="Inter, Segoe UI, Arial, sans-serif"
+        font-size="18"
+        font-weight="600">
+
+        Tecnología con mate y compromiso.
+
+    </text>
+
+</svg>
