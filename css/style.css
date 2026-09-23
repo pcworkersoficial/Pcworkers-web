@@ -42,8 +42,15 @@ header{
     padding:20px 0;
 }
 
+.logo{
+    display:flex;
+    align-items:center;
+}
+
 .logo img{
-    height:40px;
+    height:55px;
+    width:auto;
+    display:block;
 }
 
 nav ul{
