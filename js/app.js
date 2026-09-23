@@ -1,27 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    console.log("Pcworkers cargado correctamente");
+
     const links = document.querySelectorAll('a[href^="#"]');
 
     links.forEach(link => {
 
-        link.addEventListener("click", function(e){
+        link.addEventListener("click", e => {
 
-            const targetId = this.getAttribute("href");
+            const targetId = link.getAttribute("href");
+            const target = document.querySelector(targetId);
 
-            if(targetId.startsWith("#")){
-
+            if (target) {
                 e.preventDefault();
 
-                const target = document.querySelector(targetId);
-
-                if(target){
-
-                    target.scrollIntoView({
-                        behavior: "smooth"
-                    });
-
-                }
-
+                target.scrollIntoView({
+                    behavior: "smooth"
+                });
             }
 
         });
