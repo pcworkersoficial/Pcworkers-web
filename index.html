@@ -1,193 +1,112 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>PCWORKERS | Soporte técnico que habla tu idioma</title>
-
-    <meta name="description" content="Soporte técnico remoto para toda Argentina. Sin humo, sin tecnicismos y sin vueltas.">
-    <meta name="keywords" content="soporte técnico, soporte remoto, informática, pcworkers, empresas, argentina">
-    <meta name="author" content="PCWORKERS">
-
-    <link rel="icon" type="image/png" href="img/favicon-pcworkers-definitivo-512.png">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Pcworkers | Soporte IT Remoto Inmediato</title>
+    <meta name="description" content="Soluciones IT remotas para personas y empresas. Diagnosticamos y reparamos tu sistema al instante.">
+    
+    <!-- CSS y JS -->
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+    <!-- Script dedicado para el 3D diferido para no bloquear carga -->
+    <script src="three-background.js" defer></script>
 </head>
-
 <body>
+    <!-- Contenedor del fondo 3D (Three.js se renderiza acá) -->
+    <canvas id="bg-canvas"></canvas>
 
-    <header class="header">
-        <div class="container nav">
-            <a href="#inicio" class="logo">
-                <img src="img/logo-pcworkers-horizontal-final.png" alt="PCWORKERS">
-            </a>
-            <nav class="menu">
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#empresas">Empresas</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
-            <a class="btn-header" href="https://wa.me/5491124955494?text=Hola%20PCWORKERS.%20Necesito%20ayuda." target="_blank" rel="noopener noreferrer">
-                WhatsApp
-            </a>
+    <!-- Navegación -->
+    <nav class="navbar">
+        <div class="logo">
+            <!-- Reemplazar por tu SVG o img -->
+            <span class="logo-text">PCWORKERS</span>
+        </div>
+        <a href="https://wa.me/TUNUMERO?text=Hola,%20necesito%20asistencia%20remota." class="btn-nav">Soporte Rápido</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="inicio">
+        <div class="hero-content">
+            <span class="badge">⚡ ASISTENCIA REMOTA INMEDIATA</span>
+            <h1>Un mensaje. Un clic.<br>Tu PC vuelve a volar.</h1>
+            <p>Soluciones IT remotas para personas y empresas. Diagnosticamos y reparamos tu sistema sin que te muevas del escritorio.</p>
+            <div class="hero-actions">
+                <a href="https://wa.me/TUNUMERO?text=Hola,%20necesito%20asistencia%20remota%20para%20mi%20PC." class="btn-primary">Iniciar Diagnóstico</a>
+                <a href="#como-funciona" class="btn-secondary">Ver cómo funciona 👇</a>
+            </div>
         </div>
     </header>
 
-    <main>
-
-        <section id="inicio" class="hero">
-            
-            <!-- CONTENEDOR PARA EL FONDO 3D -->
-            <div id="hero-canvas-container"></div>
-
-            <div class="container hero-grid">
-                <div class="hero-content">
-                    <p class="eyebrow">Tecnología con mate y compromiso.</p>
-                    <h1>Soporte técnico que habla tu idioma.</h1>
-                    <h2>Sin humo.<br>Sin tecnicismos.<br>Sin vueltas.</h2>
-                    <p class="hero-description">
-                        Ayudamos a personas, profesionales y empresas a resolver problemas tecnológicos en toda Argentina.
-                    </p>
-                    <div class="hero-buttons">
-                        <a class="btn btn-primary" href="https://wa.me/5491124955494?text=Hola%20PCWORKERS.%20Necesito%20ayuda%20ahora." target="_blank" rel="noopener noreferrer">
-                            Necesito ayuda ahora
-                        </a>
-                        <a class="btn btn-secondary" href="#servicios">
-                            Ver servicios
-                        </a>
-                    </div>
+    <!-- ¿Cómo funciona? -->
+    <section id="como-funciona" class="section-dark">
+        <div class="container">
+            <h2 class="section-title">Soporte técnico sin fricción</h2>
+            <div class="grid-3-cols">
+                <div class="card-step">
+                    <div class="icon">📲</div>
+                    <h3>1. Escribinos</h3>
+                    <p>Iniciá el contacto por WhatsApp y nuestro sistema automatizado toma tu caso al instante.</p>
+                </div>
+                <div class="card-step">
+                    <div class="icon">🔗</div>
+                    <h3>2. Conectamos</h3>
+                    <p>Nuestros técnicos acceden a tu equipo de forma remota y 100% encriptada.</p>
+                </div>
+                <div class="card-step">
+                    <div class="icon">🚀</div>
+                    <h3>3. Resolvimos</h3>
+                    <p>Tu computadora optimizada y lista para seguir trabajando. Cero estrés.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="quick-actions">
-            <div class="container">
-                <div class="section-title">
-                    <h2>¿Con qué te damos una mano?</h2>
-                    <p>Elegí la opción que mejor describa tu situación.</p>
+    <!-- Servicios Básicos -->
+    <section id="servicios" class="section-glass">
+        <div class="container">
+            <h2 class="section-title">Diagnosticamos y reparamos a distancia</h2>
+            <div class="grid-4-cols">
+                <div class="card-service">
+                    <h3>🚀 Optimización de Sistemas</h3>
+                    <p>Windows lento, cuelgues, limpieza integral.</p>
                 </div>
-                <div class="cards">
-                    <article class="card">
-                        <h3>💻 Mi PC está lenta</h3>
-                        <p>La computadora tarda más de lo que debería.</p>
-                        <a href="https://wa.me/5491124955494?text=Hola%20PCWORKERS.%20Quiero%20optimizar%20mi%20equipo." target="_blank">Optimizar equipo</a>
-                    </article>
-                    <article class="card">
-                        <h3>🛠 Tengo un problema técnico</h3>
-                        <p>Errores, bloqueos o problemas inesperados.</p>
-                        <a href="https://wa.me/5491124955494?text=Hola%20PCWORKERS.%20Necesito%20soporte%20tecnico." target="_blank">Necesito soporte</a>
-                    </article>
-                    <article class="card">
-                        <h3>🏢 Soy una empresa</h3>
-                        <p>Soporte para usuarios, equipos y redes.</p>
-                        <a href="https://wa.me/5491124955494?text=Hola%20PCWORKERS.%20Necesito%20soporte%20para%20mi%20empresa." target="_blank">Ver soluciones</a>
-                    </article>
-                    <article class="card">
-                        <h3>📋 Quiero un presupuesto</h3>
-                        <p>Contanos qué necesitás.</p>
-                        <a href="https://wa.me/5491124955494?text=Hola%20PCWORKERS.%20Quiero%20solicitar%20un%20presupuesto." target="_blank">Solicitar presupuesto</a>
-                    </article>
+                <div class="card-service">
+                    <h3>🛡️ Limpieza de Virus</h3>
+                    <p>Protección, desinfección y eliminación de malware.</p>
+                </div>
+                <div class="card-service">
+                    <h3>⚙️ Configuración y Redes</h3>
+                    <p>Instalación de software, periféricos y conectividad.</p>
+                </div>
+                <div class="card-service">
+                    <h3>🏢 Soluciones B2B</h3>
+                    <p>Mantenimiento preventivo y soporte corporativo continuo.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="servicios" class="services">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Servicios que resuelven problemas</h2>
-                </div>
-                <div class="cards">
-                    <article class="card">
-                        <h3>💻 Reparación de PC</h3>
-                        <p>Diagnóstico y solución de fallas.</p>
-                    </article>
-                    <article class="card">
-                        <h3>⚡ Optimización</h3>
-                        <p>Más velocidad y rendimiento.</p>
-                    </article>
-                    <article class="card">
-                        <h3>🌐 Redes y WiFi</h3>
-                        <p>Conectividad estable y segura.</p>
-                    </article>
-                    <article class="card">
-                        <h3>🛠 Soporte remoto</h3>
-                        <p>Asistencia sin mover equipos.</p>
-                    </article>
-                    <article class="card">
-                        <h3>🏢 Empresas</h3>
-                        <p>Soporte para PyMEs y profesionales.</p>
-                    </article>
-                    <article class="card">
-                        <h3>🔒 Seguridad y Backups</h3>
-                        <p>Protección y recuperación de datos.</p>
-                    </article>
-                </div>
+    <!-- Diferenciador / Infraestructura -->
+    <section id="infraestructura" class="section-dark border-top">
+        <div class="container flex-row">
+            <div class="text-block">
+                <h2>Tecnología avanzada.<br>Soluciones reales.</h2>
+                <p>Nuestra infraestructura automatizada de respuesta rápida nos permite entender tu problema en segundos y asignar la solución inmediata. Menos tiempo esperando, más tiempo trabajando.</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="empresas" class="business">
-            <div class="container business-grid">
-                <div class="business-content">
-                    <h2>Tu empresa necesita trabajar.</h2>
-                    <p>Nosotros nos ocupamos de la tecnología.</p>
-                    <ul>
-                        <li>✅ Atención rápida</li>
-                        <li>✅ Soporte remoto</li>
-                        <li>✅ Redes y conectividad</li>
-                        <li>✅ Gestión de equipos</li>
-                        <li>✅ Seguimiento personalizado</li>
-                    </ul>
-                    <a class="btn btn-primary" href="https://wa.me/5491124955494?text=Hola%20PCWORKERS.%20Quiero%20una%20propuesta%20para%20mi%20empresa." target="_blank">
-                        Solicitar propuesta
-                    </a>
-                </div>
-                <div class="business-image">
-                    <img src="img/empresas.webp" alt="Soporte para empresas">
-                </div>
-            </div>
-        </section>
-
-        <section class="argentina">
-            <div class="container center">
-                <img src="img/argentina.webp" alt="Soporte remoto en Argentina">
-                <h2>No importa dónde estés.</h2>
-                <p>Desde Ushuaia hasta La Quiaca.</p>
-                <p>Si tenés internet, podemos ayudarte.</p>
-            </div>
-        </section>
-
-        <section id="contacto" class="contact">
-            <div class="container center">
-                <h2>¿Necesitás una mano?</h2>
-                <p>No importa si es una computadora, una red o tu empresa.</p>
-                <p>Estamos para ayudarte.</p>
-                <a class="btn btn-primary btn-large" href="https://wa.me/5491124955494?text=Hola%20PCWORKERS.%20Necesito%20ayuda." target="_blank">
-                    Hablar por WhatsApp
-                </a>
-            </div>
-        </section>
-
-    </main>
-
+    <!-- Footer y CTA Final -->
     <footer class="footer">
-        <div class="container center">
-            <img src="img/logo-pcworkers-horizontal-final.png" alt="PCWORKERS">
-            <p>Soporte técnico que habla tu idioma.</p>
-            <p>Tecnología con mate y compromiso.</p>
-            <p>© 2026 PCWORKERS</p>
-            <p>Renacer para seguir creciendo.</p>
+        <div class="footer-cta">
+            <h2>¿Listo para destrabar tu equipo?</h2>
+            <a href="https://wa.me/TUNUMERO?text=Hola,%20quiero%20iniciar%20un%20diagnóstico%20remoto." class="btn-primary btn-large">Solicitar Asistencia Ahora</a>
+        </div>
+        <div class="footer-info">
+            <p>&copy; 2026 Pcworkers.</p>
+            <p>Operando desde Ramos Mejía. Soluciones IT para todo el país.</p>
         </div>
     </footer>
-
-    <a class="whatsapp-float" href="https://wa.me/5491124955494?text=Hola%20PCWORKERS.%20Necesito%20ayuda." target="_blank" aria-label="WhatsApp">
-        💬
-    </a>
-
-    <!-- TYPE MODULE ES VITAL PARA THREE.JS -->
-    <script type="module" src="js/app.js"></script>
-
 </body>
 </html>
