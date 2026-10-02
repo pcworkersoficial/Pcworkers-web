@@ -6,12 +6,14 @@
     <title>Pcworkers | Soporte IT Remoto Inmediato</title>
     <meta name="description" content="Soluciones IT remotas para personas y empresas. Diagnosticamos y reparamos tu sistema al instante.">
     
-        <!-- CSS y JS -->
+    <!-- CSS (Apuntando a tu carpeta css/) -->
     <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Librería Three.js para las partículas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    
+    <!-- Tu archivo JS (Apuntando a tu carpeta js/) -->
     <script src="js/app.js" defer></script>
-
-    <!-- Script dedicado para el 3D diferido para no bloquear carga -->
-    <script src="three-background.js" defer></script>
 </head>
 <body>
     <!-- Contenedor del fondo 3D (Three.js se renderiza acá) -->
@@ -20,13 +22,13 @@
     <!-- Navegación -->
     <nav class="navbar">
         <div class="logo">
-            <!-- Reemplazar por tu SVG o img -->
-            <span class="logo-text">PCWORKERS</span>
+            <!-- Logo SVG cargado directamente desde tu carpeta img/ -->
+            <img src="img/logo-pcworkers-horizontal.svg" alt="Pcworkers" style="max-height: 40px; width: auto;">
         </div>
         <a href="https://wa.me/TUNUMERO?text=Hola,%20necesito%20asistencia%20remota." class="btn-nav">Soporte Rápido</a>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (Pantalla principal) -->
     <header class="hero" id="inicio">
         <div class="hero-content">
             <span class="badge">⚡ ASISTENCIA REMOTA INMEDIATA</span>
