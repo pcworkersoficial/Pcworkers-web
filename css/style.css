@@ -1,217 +1,352 @@
-/* ==================================================
-   PCWORKERS - STYLE.CSS V1.1 (Con 3D Integrado)
-================================================== */
-
-:root{
-    --bg:#07111f;
-    --bg-secondary:#0d1b2f;
-    --card:#14253d;
-    --primary:#0078d4;
-    --primary-hover:#0d8ff6;
-    --primary-light:#38bdf8;
-    --text:#ffffff;
-    --text-secondary:#cbd5e1;
-    --radius:18px;
+/* =========================================
+   1. VARIABLES GLOBALES Y RESET
+========================================= */
+:root {
+    /* Paleta de colores Dark/Tech */
+    --bg-main: #060b14; /* Azul oscuro espacial */
+    --bg-glass: rgba(15, 23, 42, 0.5); /* Fondo semitransparente para tarjetas */
+    --border-glass: rgba(255, 255, 255, 0.08); /* Borde sutil */
+    
+    /* Textos */
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8; /* Gris azulado para párrafos */
+    
+    /* Acentos */
+    --accent-blue: #0055ff; /* Azul eléctrico Pcworkers */
+    --accent-blue-hover: #0044cc;
+    --accent-cyan: #00d2ff; /* Cyan para brillos y detalles */
 }
 
-/* ==================================================
-   RESET
-================================================== */
-*{ margin:0; padding:0; box-sizing:border-box; }
-html{ scroll-behavior:smooth; }
-body{
-    font-family:Inter,Segoe UI,sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.6;
-    overflow-x:hidden;
-}
-img{ display:block; max-width:100%; }
-a{ text-decoration:none; }
-ul{ list-style:none; }
-
-.container{ width:min(1200px,90%); margin:0 auto; }
-.center{ text-align:center; }
-
-/* ==================================================
-   HEADER
-================================================== */
-.header{
-    position:fixed; top:0; left:0; width:100%; z-index:1000;
-    background:rgba(7,17,31,.75);
-    backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(255,255,255,.05);
-    transition: background .3s ease, box-shadow .3s ease, backdrop-filter .3s ease;
-}
-.header-scrolled{
-    background:rgba(7,17,31,.95);
-    box-shadow:0 10px 30px rgba(0,0,0,.25);
-}
-.nav{ height:80px; display:flex; align-items:center; justify-content:space-between; gap:30px; }
-.logo img{ height:60px; }
-.menu ul{ display:flex; gap:28px; }
-.menu a{ color:white; font-weight:600; transition:.3s; }
-.menu a:hover{ color:var(--primary-light); }
-
-/* ==================================================
-   BOTONES
-================================================== */
-.btn, .btn-header{
-    display:inline-flex; align-items:center; justify-content:center;
-    border:none; font-weight:700;
-    transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
-}
-.btn:hover, .btn-header:hover{ transform:translateY(-3px); }
-.btn-header{ padding:12px 20px; border-radius:12px; background:var(--primary); color:white; }
-.btn{ padding:14px 28px; border-radius:14px; }
-.btn-primary{ background:var(--primary); color:white; }
-.btn-primary:hover{ background:var(--primary-hover); box-shadow:0 10px 25px rgba(0,120,212,.35); }
-.btn-secondary{ color:white; border:1px solid rgba(255,255,255,.15); }
-.btn-secondary:hover{ background:white; color:black; }
-.btn-large{ padding:18px 40px; font-size:1.1rem; }
-
-/* ==================================================
-   HERO (MODIFICADO PARA EL 3D)
-================================================== */
-.hero{
-    position: relative; /* Clave para el canvas 3D */
-    overflow: hidden;   /* Evita scroll por partículas */
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    padding-top:100px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Contenedor del fondo 3D */
-#hero-canvas-container {
-    position: absolute;
+html {
+    scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en enlaces */
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    overflow-x: hidden; /* Evita scroll horizontal indeseado */
+    line-height: 1.6;
+}
+
+/* =========================================
+   2. FONDO 3D INTERACTIVO
+========================================= */
+#bg-canvas {
+    position: fixed;
     top: 0;
     left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1; /* Queda por detrás de todo */
+    pointer-events: none; /* Evita que bloquee clics */
+}
+
+/* =========================================
+   3. NAVEGACIÓN (NAVBAR)
+========================================= */
+.navbar {
+    position: fixed;
+    top: 0;
     width: 100%;
-    height: 100%;
-    z-index: 0; 
-    pointer-events: none; /* Permite clics en botones a través del canvas */
+    padding: 20px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(6, 11, 20, 0.7);
+    backdrop-filter: blur(12px); /* Efecto desenfoque en el menú */
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-glass);
+    transition: all 0.3s ease;
 }
 
-.hero-grid{
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--text-primary);
+}
+
+/* =========================================
+   4. BOTONES (Llamados a la acción)
+========================================= */
+.btn-nav, .btn-primary, .btn-secondary {
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-nav {
+    background: var(--accent-blue);
+    color: #fff;
+    padding: 10px 24px;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background: var(--accent-blue);
+    color: #fff;
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(0, 85, 255, 0.2);
+}
+
+.btn-secondary {
+    color: var(--text-secondary);
+    padding: 16px 24px;
+    font-size: 1.1rem;
+    border: 1px solid transparent;
+}
+
+/* Efectos Hover (Brillo Neón) */
+.btn-nav:hover, .btn-primary:hover {
+    background: var(--accent-cyan);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+    transform: translateY(-2px);
+    color: #060b14; /* Texto oscuro para contrastar con el cyan */
+}
+
+.btn-secondary:hover {
+    color: var(--text-primary);
+    border-color: var(--border-glass);
+}
+
+/* =========================================
+   5. HERO SECTION (Pantalla Inicial)
+========================================= */
+.hero {
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    margin-top: -20px; /* Ajuste óptico */
+}
+
+.hero-content {
+    max-width: 800px;
+    z-index: 10;
+}
+
+.badge {
+    display: inline-block;
+    color: var(--accent-cyan);
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    background: rgba(0, 210, 255, 0.05);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem); /* Se achica solo en móviles */
+    line-height: 1.1;
+    margin-bottom: 24px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.hero p {
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    max-width: 650px;
+    margin: 0 auto 35px auto;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =========================================
+   6. SECCIONES GLOBALES Y CONTENEDORES
+========================================= */
+.section-dark, .section-glass {
+    padding: 120px 5%;
+}
+
+.section-dark {
+    background: transparent; /* Deja ver el 3D */
+}
+
+.section-glass {
+    background: rgba(6, 11, 20, 0.6); /* Oscurece un poco para dar contraste */
+    border-top: 1px solid var(--border-glass);
+    border-bottom: 1px solid var(--border-glass);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* =========================================
+   7. GRILLAS Y TARJETAS (Glassmorphism)
+========================================= */
+.grid-3-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.grid-4-cols {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.card-step, .card-service {
+    background: var(--bg-glass);
+    border: 1px solid var(--border-glass);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: left;
+    transition: all 0.4s ease;
+}
+
+.card-step:hover, .card-service:hover {
+    transform: translateY(-8px);
+    border-color: rgba(0, 210, 255, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.card-step h3, .card-service h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+.card-step p, .card-service p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* =========================================
+   8. SECCIÓN INFRAESTRUCTURA
+========================================= */
+.border-top {
+    border-top: 1px solid var(--border-glass);
+}
+
+.flex-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.text-block {
+    max-width: 800px;
+}
+
+.text-block h2 {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    line-height: 1.1;
+}
+
+.text-block p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+}
+
+/* =========================================
+   9. FOOTER
+========================================= */
+.footer {
+    padding: 100px 5% 40px;
+    text-align: center;
+    background: #03050a; /* Fondo ultra oscuro para cerrar */
     position: relative;
-    z-index: 1; /* Trae el contenido por encima del 3D */
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
-    align-items:center;
-}
-.hero-content{ display:flex; flex-direction:column; }
-.eyebrow{ color:var(--primary-light); font-weight:700; margin-bottom:20px; }
-.hero h1{ font-size:4rem; line-height:1.1; margin-bottom:20px; }
-.hero h2{ font-size:1.8rem; color:var(--text-secondary); margin-bottom:30px; }
-.hero-description{ color:var(--text-secondary); margin-bottom:35px; font-size:1.1rem; }
-.hero-buttons{ display:flex; gap:15px; flex-wrap:wrap; }
-
-/* ==================================================
-   SECCIONES
-================================================== */
-section{ padding:110px 0; }
-.section-title{ text-align:center; margin-bottom:60px; }
-.section-title h2{ font-size:2.5rem; margin-bottom:12px; }
-.section-title p{ color:var(--text-secondary); }
-
-/* ==================================================
-   TARJETAS
-================================================== */
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:25px;
-}
-.card{
-    background:var(--card);
-    border-radius:var(--radius);
-    padding:30px;
-    border:1px solid rgba(255,255,255,.05);
-    transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
-}
-.card:hover{
-    transform:translateY(-8px);
-    border-color:rgba(56,189,248,.4);
-    box-shadow:0 15px 35px rgba(0,0,0,.2);
-}
-.card h3{ margin-bottom:15px; }
-.card p{ color:var(--text-secondary); }
-.card a{ display:inline-block; margin-top:18px; color:var(--primary-light); font-weight:700; }
-
-/* ==================================================
-   EMPRESAS
-================================================== */
-.business-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
-.business-content h2{ font-size:2.5rem; margin-bottom:15px; }
-.business-content p{ color:var(--text-secondary); margin-bottom:20px; }
-.business-content ul{ margin-bottom:30px; }
-.business-content li{ margin-bottom:10px; }
-.business-image img{ border-radius:24px; box-shadow:0 20px 50px rgba(0,0,0,.35); }
-
-/* ==================================================
-   ARGENTINA & CONTACTO
-================================================== */
-.argentina{ background:var(--bg-secondary); }
-.argentina img{ max-width:500px; margin:0 auto 40px; }
-.argentina h2{ font-size:2.6rem; margin-bottom:15px; }
-.argentina p{ color:var(--text-secondary); }
-.contact h2{ font-size:3rem; margin-bottom:20px; }
-.contact p{ color:var(--text-secondary); margin-bottom:15px; }
-
-/* ==================================================
-   FOOTER & WHATSAPP
-================================================== */
-.footer{ background:#050b15; text-align:center; padding:70px 0; }
-.footer img{ height:80px; margin:0 auto 25px; }
-.footer p{ color:var(--text-secondary); margin-bottom:10px; }
-.whatsapp-float{
-    position:fixed; right:20px; bottom:20px; width:65px; height:65px;
-    display:flex; align-items:center; justify-content:center; border-radius:50%;
-    background:#25d366; color:white; font-size:30px;
-    box-shadow:0 10px 25px rgba(0,0,0,.3); z-index:999;
-    animation:pulse 2.5s infinite;
-}
-@keyframes pulse{
-    0%{ box-shadow:0 0 0 0 rgba(37,211,102,.6); }
-    70%{ box-shadow:0 0 0 15px rgba(37,211,102,0); }
-    100%{ box-shadow:0 0 0 0 rgba(37,211,102,0); }
+    z-index: 10; /* Para tapar partículas si quedan abajo */
 }
 
-/* ==================================================
-   ANIMACIONES
-================================================== */
-.reveal{ opacity:0; transform:translateY(40px); transition:opacity .8s ease, transform .8s ease; }
-.reveal.show{ opacity:1; transform:translateY(0); }
-
-.hero-content > *{ opacity:0; animation:fadeUp .8s ease forwards; }
-.hero-content > *:nth-child(1){ animation-delay:.1s; }
-.hero-content > *:nth-child(2){ animation-delay:.3s; }
-.hero-content > *:nth-child(3){ animation-delay:.5s; }
-.hero-content > *:nth-child(4){ animation-delay:.7s; }
-.hero-content > *:nth-child(5){ animation-delay:.9s; }
-@keyframes fadeUp{
-    from{ opacity:0; transform:translateY(30px); }
-    to{ opacity:1; transform:translateY(0); }
+.footer-cta {
+    margin-bottom: 80px;
 }
 
-/* ==================================================
-   RESPONSIVE
-================================================== */
-@media (max-width:1024px){
-    .hero-grid, .business-grid{ grid-template-columns:1fr; }
-    .hero{ text-align:center; }
-    .hero-buttons{ justify-content:center; }
+.footer-cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
 }
-@media (max-width:768px){
-    .nav{ flex-direction:column; height:auto; padding:20px 0; }
-    .menu ul{ flex-wrap:wrap; justify-content:center; }
-    .hero h1{ font-size:2.8rem; }
-    .hero h2{ font-size:1.3rem; }
-    .section-title h2, .business-content h2, .contact h2, .argentina h2{ font-size:2rem; }
+
+.btn-large {
+    font-size: 1.2rem;
+    padding: 20px 40px;
+    border-radius: 12px;
 }
-@media (max-width:576px){
-    .hero-buttons{ flex-direction:column; }
-    .btn{ width:100%; }
+
+.footer-info {
+    border-top: 1px solid var(--border-glass);
+    padding-top: 40px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* =========================================
+   10. MEDIA QUERIES (Modo Celular)
+========================================= */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 5%;
+    }
+    
+    .hero-actions {
+        flex-direction: column; /* Botones uno arriba del otro */
+        gap: 15px;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%; /* Botones ocupan todo el ancho en móvil */
+    }
+
+    .section-dark, .section-glass {
+        padding: 80px 5%;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
+    .text-block h2 {
+        font-size: 2.2rem;
+    }
+
+    .footer-cta h2 {
+        font-size: 2rem;
+    }
 }
