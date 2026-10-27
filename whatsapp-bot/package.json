@@ -1,0 +1,19 @@
+{
+  "name": "pcworkers-whatsapp-bot",
+  "version": "1.0.0",
+  "description": "Bot de WhatsApp automático para Pcworkers (WhatsApp Cloud API + OpenAI)",
+  "type": "module",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "check": "node --check src/index.js && node --check src/ai.js && node --check src/whatsapp.js && node --check src/store.js && node --check src/prompt.js && node --check src/config.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2"
+  }
+}
